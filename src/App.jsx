@@ -94,36 +94,49 @@ const RevenueDistributionDemo = () => {
           </div>
         </div>
 
-        {/* Current Case Display */}
-        <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-xl p-6 mb-8 border border-blue-500/30">
-          <div className="text-center">
-            <div className="text-2xl font-bold mb-2">{distribution.caseDescription}</div>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <div className="text-sm text-gray-300 mb-2">Per Ticket</div>
-                <div className="text-4xl font-bold text-blue-400 mb-2">
-                  ₹{distribution.customerPays.toFixed(2)}
-                </div>
-                <div className="text-sm text-gray-300">
-                  Base: ₹{distribution.basePrice} + CF: ₹{distribution.convenienceFee} + Maintenance: ₹
-                  {distribution.maintenanceCharge}
-                </div>
+        {/* Daily Totals */}
+        <div className="bg-gradient-to-b from-purple-900/20 to-pink-900/20 border border-purple-500/30 rounded-xl p-6">
+          <h3 className="text-xl font-bold mb-4">💰 Daily Revenue & Taxes</h3>
+          <div className="text-center mb-4">
+            <div className="text-3xl font-bold text-purple-400">{ticketsSold}</div>
+            <div className="text-sm text-gray-300">Tickets Sold</div>
+          </div>
+          <div className="space-y-3">
+            <div className="p-3 bg-green-900/20 rounded-lg text-center">
+              <div className="text-sm text-green-300">🎭 Theater Revenue</div>
+              <div className="text-xl font-bold text-green-400">
+                ₹{distribution.totalTheaterRevenue.toLocaleString()}
               </div>
-              <div>
-                <div className="text-sm text-gray-300 mb-2">
-                  Daily Total ({ticketsSold} tickets)
-                </div>
-                <div className="text-4xl font-bold text-green-400 mb-2">
+            </div>
+            <div className="p-3 bg-red-900/20 rounded-lg text-center">
+              <div className="text-sm text-red-300">🏛 Government Tax from Tickets ({distribution.taxRate})</div>
+              <div className="text-xl font-bold text-red-400">
+                ₹{distribution.totalGovernmentRevenue.toLocaleString()}
+              </div>
+            </div>
+            <div className="p-3 bg-orange-900/20 rounded-lg text-center">
+              <div className="text-sm text-orange-300">🏛 GST on Convenience Fee (18%)</div>
+              <div className="text-xl font-bold text-orange-400">
+                ₹{distribution.totalGSTRevenue.toLocaleString()}
+              </div>
+            </div>
+            <div className="p-3 bg-blue-900/20 rounded-lg text-center">
+              <div className="text-sm text-blue-300">🎟 Portal Revenue</div>
+              <div className="text-xl font-bold text-blue-400">
+                ₹{distribution.totalPortalRevenue.toLocaleString()}
+              </div>
+            </div>
+            <div className="border-t border-white/20 pt-3">
+              <div className="p-3 bg-gradient-to-r from-purple-900/40 to-pink-900/40 rounded-lg text-center">
+                <div className="text-sm text-purple-300">Total Collection</div>
+                <div className="text-2xl font-bold text-purple-400">
                   ₹{distribution.totalCustomerPayments.toLocaleString()}
                 </div>
-                <div className="text-sm text-gray-300">Total revenue collected today</div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Revenue Breakdown */}
-        {/* ---- Keep your breakdown code same as before ---- */}
       </div>
     </div>
   );

@@ -49,6 +49,28 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+.container {
+  width: 100%;
+  max-width: 800px; /* adjust if needed */
+  margin: auto;
+  padding: 20px;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
 button:hover {
   border-color: #646cff;
 }
